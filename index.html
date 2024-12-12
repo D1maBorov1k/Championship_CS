@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління чемпіонатом CS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Управління чемпіонатом CS</h1>
+
+        <!-- Delete Form -->
+        <section class="form-section">
+            <h2>Delete Data</h2>
+            <form action="delete.php" method="post">
+                <select name="table">
+                    <option value="team">Team</option>
+                    <option value="match">Match</option>
+                    <option value="organizer">Organizer</option>
+                    <option value="player">Player</option>
+                    <option value="referee">Referee</option>
+                    <option value="result">Result</option>
+                    <option value="tournament">Tournament</option>
+                </select>
+                <input type="number" name="id" placeholder="ID запису" required>
+                <input type="submit" value="Видалити">
+            </form>
+        </section>
+        
+        <!-- Insert Form -->
+        <section class="form-section">
+            <h2>Insert Data</h2>
+            <form action="insert.php" method="post">
+                <select name="table" id="insert-table-select" onchange="showFields(this.value)">
+                    <option value="team">Team</option>
+                    <option value="match">Match</option>
+                    <option value="organizer">Organizer</option>
+                    <option value="player">Player</option>
+                    <option value="referee">Referee</option>
+                    <option value="result">Result</option>
+                    <option value="tournament">Tournament</option>
+                </select>
+
+                <div id="fields"></div>
+                <input type="submit" value="Додати">
+            </form>
+        </section>
+
+        <!-- Update Form -->
+        <section class="form-section">
+            <h2>Update Data</h2>
+            <form action="update.php" method="post">
+                <select name="table" onchange="this.form.submit()" required>
+                    <option value="">Виберіть таблицю</option>
+                    <option value="player">Player</option>
+                    <option value="team">Team</option>
+                    <option value="organizer">Organizer</option>
+                    <option value="match">Match</option>
+                    <option value="tournament">Tournament</option>
+                    <option value="referee">Referee</option>
+                    <option value="result">Result</option>
+                </select>
+            </form>
+        </section>
+
+        <!-- View Data -->
+        <section class="form-section">
+            <h2>View Data</h2>
+            <form action="view.php" method="get">
+                <select name="table">
+                    <option value="player">Player</option>
+                    <option value="team">Team</option>
+                    <option value="organizer">Organizer</option>
+                    <option value="match">Match</option>
+                    <option value="tournament">Tournament</option>
+                    <option value="referee">Referee</option>
+                    <option value="result">Result</option>
+                </select>
+                <input type="submit" value="Переглянути">
+            </form>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
